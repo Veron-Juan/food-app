@@ -1,6 +1,7 @@
 import styled from "styled-components"
-import Glider from 'react-glider';
+import Glider1 from 'react-glider';
 import 'glider-js/glider.min.css';
+import './categories.css'
 
 
 const ContainerCategories = styled.div`
@@ -56,7 +57,7 @@ export default function Categories(){
         <>
         <Title>Categories</Title>
         <ContainerCategories>
-        <Glider
+        <Glider1
             draggable
             hasArrows
             hasDots
@@ -91,7 +92,7 @@ export default function Categories(){
             
             
             
-        </Glider>
+        </Glider1>
 
         </ContainerCategories>
         </>

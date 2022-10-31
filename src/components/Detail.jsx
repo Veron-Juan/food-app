@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { MdArrowBackIosNew } from 'react-icons/md'
 
-const ContainerDetail = styled.div`
+export const ContainerDetail = styled.div`
 height: 100%;
 width: 100%;
 box-shadow: inset 0px 0px 5px 0px #00000091;
@@ -28,7 +28,7 @@ z-index: -1;
 
 `
 
-const ButtonBack = styled.button`
+export const ButtonBack = styled.button`
 position: absolute;
 top: 12px;
 left: 9px;
@@ -53,11 +53,11 @@ display: flex;
 align-items: center;
 justify-content: space-between;
 `
-const TitleDetail = styled.h2`
+export const TitleDetail = styled.h2`
 margin: 6px 0 4px 10px;
 `
 
-const Price = styled.p`
+export const Price = styled.p`
 font-size: 21px;
 font-weight: bold;
 margin-left: 10px;

@@ -3,11 +3,10 @@ import Glider from 'react-glider';
 import 'glider-js/glider.min.css';
 
 const Card = styled.div`
-min-width: 310px;
-max-width: 712px !important;
-max-height: 400px;
-min-height: 311px;
-border-radius: 30px;
+min-width: 320px;
+max-width: 100vw;
+max-height: 160px;
+border-radius: 10px;
 margin-right: 20px;
 display: flex;
 justify-content: space-evenly;
@@ -15,16 +14,16 @@ align-items: center;
 
 `
 const Title = styled.h2`
-color:black;
-font-size: 37px;
+color:white;
+font-size: 30px;
 position: absolute;
-top: 64px;
+top: 50px;
 `
 
 const Image = styled.img`
 width: 100%;
 height: 100%;
-border-radius: 80px;
+border-radius: 10px;
 object-fit: cover;
 position: relative;
 
@@ -54,14 +53,16 @@ export default function WelcomeCard(){
   scrollLock
 >
 <Card>
-    <Image  src="https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
-    <Title>20% off on your first purchase.</Title>
+    <Image  src="https://images.pexels.com/photos/5965655/pexels-photo-5965655.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
+    <Title>Get 25% off on all fruits</Title>
   </Card>
   <Card>
-    <Image src="https://images.pexels.com/photos/1833349/pexels-photo-1833349.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
+    <Image src="https://images.pexels.com/photos/5965672/pexels-photo-5965672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
+    <Title>Get 25% off on all fruits</Title>
   </Card>
   <Card>
-  <Image src="https://images.pexels.com/photos/1199957/pexels-photo-1199957.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
+  <Image src="https://images.pexels.com/photos/5971864/pexels-photo-5971864.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
+  <Title>Get 25% off on all fruits</Title>
   </Card>
 </Glider>
 </Container>    

@@ -1,13 +1,8 @@
 import Header from './components/Header'
-
-import WelcomeCard from './components/WelcomeCard'
-
-
-import './App.css'
-import Carousel from './components/Carousel'
-import Categories from './components/Categories'
-import Favorites from './components/Favorites'
+import Home from './components/Home'
 import Detail from './components/Detail'
+import AllCateogories from './components/AllCategories'
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
   
@@ -18,10 +13,21 @@ function App() {
       {/* <WelcomeCard/>
       <Categories/>
       <Carousel/>
-      <Favorites/> */}
+      <Favorites/>
       <Detail/>
+      <AllCateogories/> */}
+
+
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/allcategories' element={<AllCateogories/>}/>
+        <Route path='/detail' element={<Detail/>}/>
+      </Routes>
       
     </div>
+
+    
+
   )
 }
 
