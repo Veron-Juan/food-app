@@ -1,0 +1,25 @@
+
+
+.glider-next, .glider-prev {
+    position: absolute;
+    background: 0 0;
+    z-index: 2;
+    font-size: 40px;
+    text-decoration: none;
+    left: 6px;
+    top: 30%;
+    cursor: pointer;
+    color: #666;
+    opacity: 1;
+    line-height: 1;
+    transition: opacity .5s cubic-bezier(.17,.67,.83,.67),color .5s cubic-bezier(.17,.67,.83,.67);
+}
+
+.glider-next {
+    right: 10px;
+    left: auto;
+}
+
+.glider-dot.active {
+    background: #53c153e3;
+}
