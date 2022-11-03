@@ -75,7 +75,7 @@ const BtnMore = styled.span`
 width: 30px;
 height: 30px;
 border-radius: 30px;
-background-color: #53c153e3;
+background-color: #1CAF5E;
 font-size: 35px;
 display: flex;
 align-items: center;
@@ -126,7 +126,7 @@ const AddToCart = styled.div`
 min-width: 310px;
 border: none;
 height: 50px;
-background-color: #53c153e3;
+background-color: #1CAF5E;
 border-radius: 30px;
 margin: 20px 0;
 display: flex;
@@ -141,6 +141,7 @@ cursor: pointer;
 const CartButton = styled.p`
 color: white;
 font-size: 20px;
+background-color: #1CAF5E;
 `
 
 export default function(){

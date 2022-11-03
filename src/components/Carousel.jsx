@@ -38,6 +38,10 @@ font-size: 24px;
 color: white;
 background-color: #3f3d3d;
 border: none;
+cursor: pointer;
+&:hover{
+  background-color: #1CAF5E;
+}
 `
 
 export const Span = styled.span`
@@ -58,40 +62,13 @@ width: 100%;
 `
 
 
-export default function (){
-
+export default function (props){
+  const {products, onAdd, onRremove } = props;
   const [food, setFood] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState();
 
-  // const getFood = async ()=>{
-  //   const options = {
-  //     method: 'GET',
-  //     headers: {
-  //       'X-RapidAPI-Key': '81c3a0ed8fmsh2dffa92d6665b29p1a704ajsn07c65d4072c2',
-  //       'X-RapidAPI-Host': 'burgers1.p.rapidapi.com'
-  //     }
-  //   };
-  //   try{
-  //     setLoading(true)
-  //     const res = await fetch('https://burgers1.p.rapidapi.com/burgers?limit=9', options)
-  //     const foodData = await res.json()
-  //     console.log(foodData)
-  //     setFood(foodData)
-  //   }
-  //   catch{
-  //     error(setError)
-  //   }
-  //   finally{
-  //     setLoading(false)
-  //   }
-  // }
-
-
-  // useEffect(()=>{
-  //   getFood()
-    
-  // }, [])
+  
     return(
 
 
@@ -107,87 +84,28 @@ export default function (){
       slidesToShow={2}
       slidesToScroll={1}
       >
-      <Cards>
-      <Img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfLKaGcoSU9q1bzPw3VaWx83hG1c0qUU1O6g&usqp=CAU'/>
-      <Span>
-        <H3>Milanesa</H3>
-        <P>descridsa asdjasdd n s sdd sdew </P>
-      </Span>
-      <SpanHorizintal>
-        <P>$15</P>
-        <Button>+</Button>
-
-      </SpanHorizintal>
-    </Cards>
-      <Cards>
-      <Img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfLKaGcoSU9q1bzPw3VaWx83hG1c0qUU1O6g&usqp=CAU'/>
-      <Span>
-        <H3>Milanesa</H3>
-        <P>descridsa asdjasdd n s sdd sdew </P>
-      </Span>
-      <SpanHorizintal>
-        <P>$15</P>
-        <Button>+</Button>
-
-      </SpanHorizintal>
-    </Cards>
-      <Cards>
-      <Img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfLKaGcoSU9q1bzPw3VaWx83hG1c0qUU1O6g&usqp=CAU'/>
-      <Span>
-        <H3>Milanesa</H3>
-        <P>descridsa asdjasdd n s sdd sdew </P>
-      </Span>
-      <SpanHorizintal>
-        <P>$15</P>
-        <Button>+</Button>
-
-      </SpanHorizintal>
-    </Cards>
-      <Cards>
-      <Img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfLKaGcoSU9q1bzPw3VaWx83hG1c0qUU1O6g&usqp=CAU'/>
-      <Span>
-        <H3>Milanesa</H3>
-        <P>descridsa asdjasdd n s sdd sdew </P>
-      </Span>
-      <SpanHorizintal>
-        <P>$15</P>
-        <Button>+</Button>
-
-      </SpanHorizintal>
-    </Cards>
+        {products.map((product)=>(
+          <Cards key={product.id}>
+          <Img src={product.image} alt={product.name}/>
+          <Span>
+            <H3>{product.name}</H3>
+            <P>descridsa asdjasdd n s sdd sdew </P>
+          </Span>
+          <SpanHorizintal>
+            <P>${product.price}</P>
+            <Button onClick={()=> onAdd(product)}>+</Button>
+    
+          </SpanHorizintal>
+        </Cards>
+        ))}
+      
   
     </Glider> } 
     
     
       
 
-        {/* <Glider
-      draggable
-      hasArrows
-      hasDots
-      slidesToShow={2}
-      slidesToScroll={1}
-      >
-        {food && food.map((comidas)=>{
-          return(
-            <Cards>
-      <Img src='https://www.clarin.com/img/2022/04/08/el-doble-medallon-de-carne___KUdGeJ2eE_2000x1500__1.jpg' />
-      <Span>
-        <H3>Milanesa</H3>
-        <P>descridsa asdjasdd n s sdd sdew </P>
-      </Span>
-      <SpanHorizintal>
-        <P>$15</P>
-        <Button>+</Button>
-
-      </SpanHorizintal>
-    </Cards>
-          )
-        })}
-      
-      
-  
-    </Glider> */}
+        
       
         
         </>
