@@ -2,12 +2,13 @@ import Glider from 'react-glider';
 import 'glider-js/glider.min.css';
 import styled from 'styled-components';
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 export const Cards = styled.div`
 margin: 20px;
 height: 135px;
-max-width: 400px;
-min-width: 180px;
+max-width: 220px;
+min-width: 150px;
 border: 1px solid white;
 border-radius: 30px;
 box-shadow: 0px 0px 3px 0px black;
@@ -61,6 +62,14 @@ display: flex;
 width: 100%;
 `
 
+const Navink = styled(Link)`
+display: flex;
+justify-content: center;
+outline: none;
+text-decoration: none;
+color: red;
+`
+
 
 export default function (props){
   const {products, onAdd, onRremove } = props;
@@ -84,8 +93,12 @@ export default function (props){
       slidesToShow={2}
       slidesToScroll={1}
       >
+        {/* <Navink to="detail" >
+          
+        </Navink> */}
         {products.map((product)=>(
-          <Cards key={product.id}>
+          
+          <Cards  key={product.id}>
           <Img src={product.image} alt={product.name}/>
           <Span>
             <H3>{product.name}</H3>

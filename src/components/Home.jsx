@@ -16,7 +16,7 @@ export default function Home(props){
         <>
         
         <WelcomeCard/>
-        <Categories/>
+        {/* <Categories/> */}
         <Carousel products={products} onAdd={onAdd}/>
         <Favorites/>
         

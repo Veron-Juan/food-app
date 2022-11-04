@@ -11,6 +11,7 @@ margin-right: 20px;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
+margin-top: 60px;
 
 `
 const Title = styled.h2`

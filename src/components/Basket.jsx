@@ -15,7 +15,7 @@ background-color: white;
 position: fixed;
 overflow: scroll;
 height: -webkit-fill-available;
-transition: 0.5 all ease;
+transition: 0.8 all ease ;
 
 `
 const Aber = styled.div`
@@ -25,12 +25,16 @@ flex-direction: column;
 `
 
 
-const CardItems = styled(Cards)`
-width: 311px;
+const CardItems = styled.div`
+width: 300px;
 height: 126px;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
+border-radius: 30px;
+box-shadow: 0px 0px 3px 0px black;
+
+margin: 20px auto;
 
 
 `
@@ -78,7 +82,19 @@ const TitleItems = styled.p`
 font-weight: bold;
 margin: 5px 0;
 `
-
+const ButtonPay = styled.button`
+width: 260px;
+height: 40px;
+border-radius: 29px;
+border:none;
+background-color: #1CAF5E;
+color:white;
+margin: 10px auto;
+cursor:pointer;
+&:hover{
+    opacity: .96;
+}
+`
 const Basket = (props ) => {
     const {cartItems, onAdd, onRemove} = props;
     const {showCart} = props;
@@ -132,7 +148,7 @@ const Basket = (props ) => {
                             <p>${totalPrice.toFixed(2)}</p>
                         </ConeinerDetialPrice>
 
-
+                        <ButtonPay>Pay now!</ButtonPay>
                         
                         
                         
