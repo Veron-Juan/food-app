@@ -10,14 +10,14 @@ import WelcomeCard from "./WelcomeCard";
 
 
 
-export default function Home(props){
-    const {products, onAdd} = props;
+export default function Home(){
+    
     return(
         <>
         
         <WelcomeCard/>
         {/* <Categories/> */}
-        <Carousel products={products} onAdd={onAdd}/>
+        <Carousel />
         <Favorites/>
         
         </>

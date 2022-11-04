@@ -6,6 +6,7 @@ height: 100%;
 width: 100%;
 box-shadow: inset 0px 0px 5px 0px #00000091;
 z-index: 100;
+margin-top: 61px;
 
 `
 

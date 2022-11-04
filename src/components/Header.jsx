@@ -2,13 +2,12 @@ import styled from "styled-components"
 import { FaBars } from 'react-icons/fa';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useState } from "react";
+import {UseCartContext } from "../useContext/Context"
 
 
 import Search from "./Search";
 import Basket from "./Basket";
 import Sidebar from "./Sidebar";
-
-
 
 
 const ContainerHeader = styled.div`
@@ -25,7 +24,6 @@ box-shadow: 2px 0px 4px 0px black;
 
 `
 
-
 const HeaderNav = styled.header`
 width: 1200px;
 height: 60px;
@@ -39,7 +37,6 @@ left: 0; */
 justify-content: space-between;
 align-items: center;
 /* z-index: 500; */
-
 
 `
 
@@ -60,18 +57,10 @@ cursor: pointer;
 
 
 export default function Header (props){
-    const {countCartItems} = props;
-    const {stateofcart} = props;
-    const {changuestatecart} = props;
+    const { cartItems } = UseCartContext();
     const {mostrar} = props;
     const {setMostrar} = props
 
-    // const [showCart,setShowCart] = useState(false)
-
-    
-    
-    // onClick={()=> setShowCart(!showCart)}
-    
     return(
         <>
         <ContainerHeader>
@@ -82,16 +71,12 @@ export default function Header (props){
                 <FaShoppingCart onClick={()=> setMostrar(!mostrar)} style={{fontSize:"28px"}} />
                 <a href="#">
                      { "" }
-                    {countCartItems? (
-                        <CountCartAdded>{countCartItems}</CountCartAdded>
+                    {cartItems.length? (
+                        <CountCartAdded>{cartItems.length}</CountCartAdded>
                     ) : ("") }
                 </a>
             </ContainerShop>
-            
-            
         </HeaderNav>
-        
-        {/* <Sidebar showCart={showCart} /> */}
         </ContainerHeader>
 
         
