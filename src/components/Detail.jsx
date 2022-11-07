@@ -45,6 +45,7 @@ font-size: 20px;
 display: flex;
 justify-content: center;
 align-items: center;
+background-color: #eae5e5;
 color: #535151;
 cursor: pointer;
 `
