@@ -1,13 +1,14 @@
 
 
 .glider-next, .glider-prev {
+    display: none;
     position: absolute;
     background: 0 0;
     z-index: 2;
     font-size: 40px;
     text-decoration: none;
     left: 6px;
-    top: 30%;
+    top: 25%;
     cursor: pointer;
     color: #666;
     opacity: 1;
@@ -26,6 +27,5 @@
 
 .glider.draggable {
     user-select: none;
-    
     cursor: auto;
 }

@@ -8,9 +8,9 @@ import union from "../assets/Union.svg"
 export const ContainerDetail = styled.div`
 height: 100%;
 width: 100%;
-box-shadow: inset 0px 0px 5px 0px #00000091;
+/* box-shadow: inset 0px 0px 5px 0px #00000091; */
 z-index: 100;
-margin-top: 61px;
+margin-top: 136px;
 
 `
 
@@ -229,7 +229,7 @@ export default function Detail(){
                     <Price>${productDetail[0].price}</Price>
                     <AddOrSub>
                         <BtnMore onClick={()=> onRemove(productDetail[0])} ><img style={{width:"17px"}} src={minus}/></BtnMore>
-                        <h3 style={{margin:"0 10px"}}> {chau / 2}kg </h3>
+                        <h3 style={{margin:"0 10px"}}> {chau}kg </h3>
                         {/* <h3 style={{margin:"0 10px"}}>{quantityProduct.length !== 0 ? quantityProduct : "0" } kg </h3> */}
                         
                         <BtnMore onClick={()=> onAdd(productDetail[0])}   ><img style={{width:"17px"}} src={union}/></BtnMore>
@@ -269,7 +269,7 @@ export default function Detail(){
                 </RelatedItems>
             </ContainerRelatedItems>
         <ContainerAddCart>
-        <AddToCart><CartButton onClick={()=> onAdd()}>Add To Cart</CartButton></AddToCart>
+        <AddToCart><CartButton onClick={()=> onAdd(productDetail[0])}>Add To Cart</CartButton></AddToCart>
         </ContainerAddCart>
         
         </ContainerDetail>

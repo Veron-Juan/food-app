@@ -7,6 +7,7 @@ import data from './data'
 import RenderPrueba from './components/RenderPrueba'
 import { useState } from 'react'
 import Basket from './components/Basket'
+import Results from './components/Results'
 
 //si hay problemas fijarse si es porque no estoy compartiendo los productos tambien
 
@@ -23,6 +24,7 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/allcategories' element={<AllCateogories/>}/>
         <Route path='/detail' element={<Detail/>}/>
+        <Route path='/resultados' element={<Results/>}/>
       </Routes>
       
     </div>

@@ -5,10 +5,11 @@ import {UseCartContext } from "../useContext/Context"
 import { AiOutlineClose } from 'react-icons/ai';
 import minus from "../assets/minus.svg"
 import union from "../assets/Union.svg"
+import close from "../assets/close.svg"
 
 const Menu = styled(ContainerDetail)`
 width: 355px;
-top: 0px;
+top: -4px;
 transform: ${({open})=> open ? "translateX(0)" : "translateX(-200vw)"};
 transition: .5s all ease;
 margin-left: -6px;
@@ -24,13 +25,18 @@ overflow: scroll;
 height: -webkit-fill-available;
 
 transition: 0.7 all ease ;
-
+box-shadow: inset 0 0 1px black;
+@media (min-width: 656px) {
+    width: 655px;
+    top: -35px;
+  }
 `
-const Aber = styled.div`
-display:flex;
-flex-direction: column;
 
-`
+
+
+
+
+
 
 
 const CardItems = styled.div`
@@ -107,14 +113,16 @@ cursor:pointer;
 const HeaderBasket = styled.div`
 display:flex;
 align-items: center;
+justify-content: space-between;
 `
 
 const IconClose = styled.span`
 font-size: 20px;
 font-weight: bold;
-position:absolute;
+/* position:absolute;
 right:8px;
-top:18px;
+top:18px; */
+margin-right: 10px;
 color:gray;
 cursor:pointer;
 &:hover{
@@ -138,12 +146,12 @@ const Basket = () => {
         <HeaderBasket>
         <h2 style={{margin:"10px"}}>Cart items</h2>
         <IconClose>
-            <AiOutlineClose onClick={()=> setMostrar(!mostrar)}/>
+            <img src={close} onClick={()=> setMostrar(!mostrar)} />
         </IconClose>
         </HeaderBasket>
         
             
-            {cartItems.length === 0 && <p>cart is empty</p>}
+            {cartItems.length === 0 && <p style={{textAlign:"center"}}>cart is empty</p>}
             {cartItems.map((item)=>(
                 <CardItems key={item.id}>
                     <img style={{width:"40px", height:"40px"}} src={item.image}/>

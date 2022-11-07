@@ -12,17 +12,22 @@ import Sidebar from "./Sidebar";
 
 const ContainerHeader = styled.div`
 width: 100%;
-height: 160px;
+height: 130px;
 position: fixed;
 z-index: 500;
 top: 0;
 left: 0;
 display: flex;
 flex-direction: column;
-justify-content: center;
 align-items: flex-start;
-box-shadow: 2px 0px 4px 0px black;
+box-shadow: 0.7px 0px 1.9px 0px black;
 background-color: white;
+/* @media (min-width: 656px) {
+    height: 60px;
+  } */
+  @media (min-width: 648px) {
+    height: 100px;
+}
 
 `
 
@@ -34,6 +39,7 @@ justify-content: space-between;
 align-items: center;
 width: 100%;
 height: 60px;
+margin-top: 5px;
 
 `
 const UserAndLocation = styled.div`
@@ -54,9 +60,10 @@ margin-right: 15px;
 
 const HeaderNav = styled.header`
 width: 100%;
-height: 60px;
+
 background-color: white;
 display: flex;
+
 padding-right: 10px;
 padding-left: 10px;
 /* top: 0;
@@ -64,7 +71,9 @@ left: 0; */
 /* position: fixed; */
 justify-content: space-evenly;
 align-items: center;
+
 /* z-index: 500; */
+
 
 
 `
@@ -98,18 +107,41 @@ background-color: gray;
 
 export default function Header (){
     const { cartItems, mostrar, setMostrar } = UseCartContext();
-    // const {mostrar} = props;
-    // const {setMostrar} = props
+    const [day, setDay] = useState("")
+    
 
+    function mostrarSaludo(){
+ 
+        const fecha = new Date(); 
+        let hora = fecha.getHours();
+       
+        if(hora >= 0 && hora <= 12){
+          setDay("Good morning.")
+          
+        }
+       
+        if(hora >= 12 && hora < 18){
+            setDay("Good evening.")
+          
+        }
+       
+        if(hora >= 18 && hora < 24){
+            setDay("Good night.")
+          
+        }
+       
+        
+    }
     return(
         <>
-        <ContainerHeader>
+        <ContainerHeader onLoad={mostrarSaludo}>
             <StatusHead>
                 <UserAndLocation>
                     <h2 style={{margin:"0px"}}>Hello, Juan</h2> 
-                    <P>good morning</P>
+                    <P>{day}</P>
                 </UserAndLocation>
                 <ContUserAndCart>
+                
                     
                 <ContainerShop >
                 <FaShoppingCart onClick={()=> setMostrar(!mostrar)} style={{fontSize:"28px"}} />
@@ -125,10 +157,7 @@ export default function Header (){
                 </ContUserAndCart>
             </StatusHead>
         <HeaderNav>
-            <Search />
-            {/* <FaBars style={{fontSize:"30px"}} /> */}
-            
-            
+            <Search  />
         </HeaderNav>
         </ContainerHeader>
 

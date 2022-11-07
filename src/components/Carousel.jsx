@@ -68,7 +68,7 @@ align-items: center;
 justify-content: center;
 cursor: pointer;
 &:hover{
-  background-color: #1CAF5E;
+  background-color:#137740;
 }
 `
 
@@ -110,7 +110,7 @@ export default function (props){
 
 
       <>
-      <H3>Popular</H3>
+      <h2>Popular</h2>
 
       {/* LOADING */}
       {loading &&
@@ -127,6 +127,7 @@ export default function (props){
         </Navink> */}
         {products.map((product)=>(
           <Cards key={product.id} data-product-id={product.id}>
+            
             <ViewDetail><Navink to={`/detail?productID=${product.id}`}>View detail</Navink></ViewDetail>
           
             
@@ -134,6 +135,7 @@ export default function (props){
           <Span>
             <H3>{product.name}</H3>
             <P>descridsa asdjasdd n s sdd sdew </P>
+            
             
           </Span>
           

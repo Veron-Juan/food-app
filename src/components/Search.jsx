@@ -1,31 +1,59 @@
 import styled from "styled-components"
 import { CiSearch } from 'react-icons/ci';
+import { useNavigate } from "react-router-dom";
 
-const Buscador = styled.div`
+const Buscador = styled.form`
 width: 229px;
 height: 38px;
 border: 1px solid gray;
 border-radius: 10px;
 display: flex;
+
+
 padding-left: 10px;
 align-items: center;
+
+@media (min-width: 648px) {
+    position: absolute;
+    top:15px;
+  }
+
 `
 const Input = styled.input`
-width: 90px;
+width: 150px;
 background: none;
 border-color: transparent;
 outline: none;
+font-family: 'Poppins', sans-serif;
 `
 
 
 
 
 export default function Search(){
+    const history = useNavigate()
+
+    // const [word, setWord] = useState([]);
+
+    const submitHandler = (e) => {
+        e.preventDefault();
+        const keyword = e.currentTarget.keyword.value.trim();
+        
+        if (keyword.length < 2){
+            alert('hfghfyjfygygyu')
+        } else {
+            e.currentTarget.keyword.value = '';
+            history(`resultados?keyword=${keyword}`)
+            
+        }
+    }
     return(
         <>
-        <Buscador>
-            <CiSearch/>
-            <Input placeholder="Search..."/>
+        <Buscador onSubmit={submitHandler}>
+            <CiSearch style={{fontSize:"21px"}} />
+            <Input placeholder="Search..." name="keyword"/> 
+            
+            
         </Buscador>
 
         

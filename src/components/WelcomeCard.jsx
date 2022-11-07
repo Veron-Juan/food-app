@@ -12,14 +12,17 @@ margin-right: 20px;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
-margin-top: 160px;
+margin-top: 130px;
+@media (min-width: 648px) {
+  margin-top: 105px;
+  }
 
 `
 const Title = styled.h2`
 color:white;
 font-size: 30px;
 position: absolute;
-top: 50px;
+top: 160px;
 `
 
 const Image = styled.img`

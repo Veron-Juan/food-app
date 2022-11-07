@@ -16,7 +16,7 @@ export default function Home(){
         <>
         
         <WelcomeCard/>
-        {/* <Categories/> */}
+        <Categories/>
         <Carousel />
         <Favorites/>
         

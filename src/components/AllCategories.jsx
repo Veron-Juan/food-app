@@ -9,7 +9,10 @@ import { TitleDetail } from "./Detail"
 
 
 const ContainerCategories = styled(ContainerDetail)`
-padding: 5px 0;
+margin-top: 130px;
+@media (min-width: 656px) {
+    margin-top: 100px;
+}
 `
 
 const BoxProduct = styled.div`
@@ -36,11 +39,17 @@ width:90%;
 
 
 `
+const Back = styled(ButtonBack)`
+position: absolute;
+
+left: -12px;
+`
 
 const ImgProduct = styled.img`
 width: 90px;
 height: 90px;
 border-radius: 14px;
+
 `
 
 const ContainerText = styled.div`
@@ -57,13 +66,18 @@ color: #817f7f;
 `
 
 export default function AllCateogories(){
+
+    const back = ()=>{
+        window.history.back();
+    }
+
     return(
         <>
         <ContainerCategories>
             <ContainerTop>
-                <ButtonBack >
+                <Back onClick={back} >
                     <MdArrowBackIosNew/>
-                </ButtonBack>
+                </Back>
                 <TitleDetail>Categories</TitleDetail>
             </ContainerTop>
             <BoxProduct>
