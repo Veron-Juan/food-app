@@ -46,7 +46,6 @@ display: flex;
 justify-content: center;
 align-items: center;
 color: #535151;
-box-shadow: inset 0px 0px 2px 0px #00000091;
 cursor: pointer;
 `
 
