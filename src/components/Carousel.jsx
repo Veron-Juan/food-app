@@ -4,33 +4,42 @@ import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {UseCartContext } from "../useContext/Context"
+import minus from "../assets/minus.svg"
+import union from "../assets/Union.svg"
 
 
 export const Cards = styled.div`
-margin: 20px;
-height: 130px;
-max-width: 220px;
-min-width: 180px;
+margin: 10px;
+min-height: 214px;
+max-height: 330px;
+max-width: 250px;
+min-width: 210px;
 border: 1px solid white;
 border-radius: 30px;
 position: relative;
 /* border: 1px solid green; */
 box-shadow: 0px 0px 3px 0px black;
 cursor:pointer;
+display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 `
 
 const Navink = styled(Link)`
 text-decoration: none;
 font-weight: 700;
-color: #a1999989;
+color: #949a97;
 &:hover{
-  color:#1CAF5E;
+  color:#4a4a4a;
+  font-weight: bold;
+  
 }
 `
 
 export const Img = styled.img`
-min-width: 180px;
-max-width: 200px ;
+/* min-width: 180px; */
+width: 60% ;
 border-radius: 30px;
 /* border: 1px solid red; */
 `
@@ -41,6 +50,8 @@ margin: 7px 0;
 export const P = styled.p`
 text-align: center;
 margin: 7px 0;
+color:#4a4a4a;
+font-weight: 300;
 
 `
 export const Button = styled.button`
@@ -49,9 +60,12 @@ height: 45px;
 width: 45px;
 font-size: 24px;
 color: white;
-background-color: #3f3d3d;
+background-color: #1CAF5E;
 border: none;
 z-index: 8000;
+display: flex;
+align-items: center;
+justify-content: center;
 cursor: pointer;
 &:hover{
   background-color: #1CAF5E;
@@ -61,7 +75,7 @@ cursor: pointer;
 const ViewDetail = styled(P)`
 position: absolute;
 top:0;
-right: 5px;
+right: 12px;
 `
 
 export const Span = styled.span`
@@ -72,9 +86,11 @@ align-items: center;
 `
 export const SpanHorizintal = styled.span`
 display: flex;
-justify-content: space-around;
+justify-content: space-between;
 align-items: center;
 margin: 7px 0;
+
+width:150px;
 `
 const Container = styled.div`
 display: flex;
@@ -87,11 +103,8 @@ width: 100%;
 export default function (props){
   const { products,  onAdd,  } = UseCartContext();
   
-  const [food, setFood] = useState();
+  
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState();
-  
-  
   
     return(
 
@@ -107,13 +120,14 @@ export default function (props){
       hasDots
       slidesToShow={2}
       slidesToScroll={1}
+      
       >
         {/* <Navink to="detail" >
           
         </Navink> */}
         {products.map((product)=>(
-          <Cards key={product.id}>
-            <ViewDetail><Navink to="/detail">View detail</Navink></ViewDetail>
+          <Cards key={product.id} data-product-id={product.id}>
+            <ViewDetail><Navink to={`/detail?productID=${product.id}`}>View detail</Navink></ViewDetail>
           
             
           <Img  src={product.image} alt={product.name} />
@@ -125,8 +139,10 @@ export default function (props){
           
         
         <SpanHorizintal>
-            <P>${product.price}</P>
-            <Button onClick={()=> onAdd(product)}>+</Button>
+            <P style={{fontWeight:"bold"}}>${product.price}</P>
+            <Button onClick={()=> onAdd(product)}>
+            <img style={{width:"17px"}} src={union}/>
+            </Button>
           </SpanHorizintal>
         </Cards>
         ))}

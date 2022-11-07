@@ -1,5 +1,9 @@
 import styled from "styled-components"
 import { MdArrowBackIosNew } from 'react-icons/md'
+import {UseCartContext } from "../useContext/Context"
+import { useState } from "react"
+import minus from "../assets/minus.svg"
+import union from "../assets/Union.svg"
 
 export const ContainerDetail = styled.div`
 height: 100%;
@@ -145,24 +149,90 @@ font-size: 20px;
 background-color: #1CAF5E;
 `
 
-export default function(){
+export default function Detail(){
+
+    const back = ()=>{
+        window.history.back();
+    }
+
+    let query = new URLSearchParams(window.location.search);
+
+    let productID = query.get('productID');
+    // console.log(productID);
+
+    
+
+    const {cartItems, setCartItems, products, onAdd, onRemove, kilo, setKilo, addInDetail  } = UseCartContext();
+    
+    const productDetailQuantity = cartItems.filter((product)=> product.id === productID)
+    const productDetail = products.filter((product)=> product.id === productID);
+    const aberconmap = products.map((item)=> item )
+    // const cantidadkilos = products.map((item)=> {const numero = item.id; return numero} )
+    
+    
+    
+    // console.log(productDetail)
+    // console.log(aberconmap)
+    // {item.quantity}
+    // console.log(productDetail.quantity)
+
+    // const pruebamap = cartItems.map((item)=> item.id)
+    // console.log(pruebamap)
+
+    
+    // console.log(quantityProduct);
+    // console.log(nueva);
+    
+    // const [kilo, setKilo] = useState([])
+    
+    // const quantityProduct = cartItems.map((x)=> {x.quantity})
+
+    // console.log(quantityProduct)
+    
+    
+    const filterProduct = products.filter((product)=> product.id === productID )
+    console.log(filterProduct[0])
+    console.log(cartItems.quantity)
+    // const addInDetail = ()=>{
+    //     cartItems.map((x)=> {
+    //         setKilo(x.quantity)
+    //         console.log(kilo)
+    //     })
+    // }
+    
+    // console.log(quantityProduct)
+
+    const hola = cartItems.filter((product)=> product.id === productID)
+    console.log(hola)
+    console.log(hola.quantity)
+
+    const chau = hola.map((x)=> x.quantity)
+    console.log(chau)
+    
+
+    
+    
     return(
         <>
+        
+        
         <ContainerDetail>
             <ContainerImgAndBtn>
-                <ImageDetail src="https://i.blogs.es/120994/brocoli/1366_2000.jpg"/>
-                <ButtonBack>
+                <ImageDetail src={productDetail[0].image} />
+                <ButtonBack onClick={back}>
                     <MdArrowBackIosNew/>
                 </ButtonBack>
             </ContainerImgAndBtn>
             <ContainerTextAndNumbers>
-                <TitleDetail>Brocolli</TitleDetail>
+                <TitleDetail>{productDetail[0].name}</TitleDetail>
                 <ContainerPriceAndAdd >
-                    <Price>$8.99</Price>
+                    <Price>${productDetail[0].price}</Price>
                     <AddOrSub>
-                        <BtnMore>-</BtnMore>
-                        <h3 style={{margin:"0 10px"}}>1 kg</h3>
-                        <BtnMore>+</BtnMore>
+                        <BtnMore onClick={()=> onRemove(productDetail[0])} ><img style={{width:"17px"}} src={minus}/></BtnMore>
+                        <h3 style={{margin:"0 10px"}}> {chau / 2}kg </h3>
+                        {/* <h3 style={{margin:"0 10px"}}>{quantityProduct.length !== 0 ? quantityProduct : "0" } kg </h3> */}
+                        
+                        <BtnMore onClick={()=> onAdd(productDetail[0])}   ><img style={{width:"17px"}} src={union}/></BtnMore>
                     </AddOrSub>
                 </ContainerPriceAndAdd>
                 <DescriptionContainer>
@@ -199,12 +269,9 @@ export default function(){
                 </RelatedItems>
             </ContainerRelatedItems>
         <ContainerAddCart>
-        <AddToCart><CartButton>Add To Cart</CartButton></AddToCart>
+        <AddToCart><CartButton onClick={()=> onAdd()}>Add To Cart</CartButton></AddToCart>
         </ContainerAddCart>
         
-
-
-
         </ContainerDetail>
         
         </>

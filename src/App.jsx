@@ -16,7 +16,8 @@ function App() {
   return (
     <div className="App">
       <Header  setMostrar={setMostrar} mostrar={mostrar}  />
-      <Basket   mostrar={mostrar}  />
+      {/* mostrar={mostrar} */}
+      <Basket     />
       
       <Routes>
         <Route path='/' element={<Home />}/>

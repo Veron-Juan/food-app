@@ -23,3 +23,9 @@
 .glider-dot.active {
     background: #53c153e3;
 }
+
+.glider.draggable {
+    user-select: none;
+    
+    cursor: auto;
+}

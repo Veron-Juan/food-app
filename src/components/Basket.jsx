@@ -3,6 +3,8 @@ import { Button, Cards } from "./Carousel";
 import { ContainerDetail } from "./Detail";
 import {UseCartContext } from "../useContext/Context"
 import { AiOutlineClose } from 'react-icons/ai';
+import minus from "../assets/minus.svg"
+import union from "../assets/Union.svg"
 
 const Menu = styled(ContainerDetail)`
 width: 355px;
@@ -111,8 +113,8 @@ const IconClose = styled.span`
 font-size: 20px;
 font-weight: bold;
 position:absolute;
-right:6px;
-top:15px;
+right:8px;
+top:18px;
 color:gray;
 cursor:pointer;
 &:hover{
@@ -123,11 +125,11 @@ cursor:pointer;
 `
 
 
-const Basket = (props) => {
-    const { cartItems, onAdd, onRemove } = UseCartContext();
-    const {mostrar} = props;
+const Basket = () => {
+    const { cartItems, onAdd, onRemove, mostrar, setMostrar } = UseCartContext();
+    // const {mostrar} = props;
     const itemsPrice = cartItems.reduce((a,c)=> a + c.price * c.quantity,0 )
-    const totalPrice = itemsPrice
+    const totalPrice = itemsPrice;
     
     
   return (
@@ -136,7 +138,7 @@ const Basket = (props) => {
         <HeaderBasket>
         <h2 style={{margin:"10px"}}>Cart items</h2>
         <IconClose>
-            <AiOutlineClose/>
+            <AiOutlineClose onClick={()=> setMostrar(!mostrar)}/>
         </IconClose>
         </HeaderBasket>
         
@@ -151,9 +153,9 @@ const Basket = (props) => {
                         fruit
                         <ConteinerPrices >
                             ${item.price.toFixed(2)}
-                            <ButtonCart onClick={()=> onRemove(item)}>-</ButtonCart>
+                            <ButtonCart onClick={()=> onRemove(item)}> <img style={{width:"17px"}} src={minus}/> </ButtonCart>
                             {item.quantity}
-                            <ButtonCart onClick={()=> onAdd(item)}>+</ButtonCart>
+                            <ButtonCart onClick={()=> onAdd(item)}> <img style={{width:"17px"}} src={union}/> </ButtonCart>
                             
                         </ConteinerPrices>
                         

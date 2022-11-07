@@ -2,12 +2,12 @@ import styled from "styled-components"
 import { CiSearch } from 'react-icons/ci';
 
 const Buscador = styled.div`
-width: 125px;
-height: 30px;
+width: 229px;
+height: 38px;
 border: 1px solid gray;
 border-radius: 10px;
 display: flex;
-justify-content: space-between;
+padding-left: 10px;
 align-items: center;
 `
 const Input = styled.input`
@@ -24,8 +24,8 @@ export default function Search(){
     return(
         <>
         <Buscador>
-            <Input/>
             <CiSearch/>
+            <Input placeholder="Search..."/>
         </Buscador>
 
         

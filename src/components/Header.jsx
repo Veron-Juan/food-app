@@ -3,7 +3,7 @@ import { FaBars } from 'react-icons/fa';
 import { FaShoppingCart } from 'react-icons/fa';
 import { useState } from "react";
 import {UseCartContext } from "../useContext/Context"
-
+import filter from "../assets/filter.svg"
 
 import Search from "./Search";
 import Basket from "./Basket";
@@ -12,20 +12,48 @@ import Sidebar from "./Sidebar";
 
 const ContainerHeader = styled.div`
 width: 100%;
-height: 60px;
+height: 160px;
 position: fixed;
 z-index: 500;
 top: 0;
 left: 0;
 display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: flex-start;
 box-shadow: 2px 0px 4px 0px black;
+background-color: white;
+
+`
+
+const StatusHead = styled.div`
+background-color: white;
+margin-bottom: 10px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+height: 60px;
+
+`
+const UserAndLocation = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+margin-left: 15px;
+
+`
+
+const ContUserAndCart = styled.div`
+display:flex;
+justify-content: center;
+align-items: center;
+margin-right: 15px;
 
 `
 
 const HeaderNav = styled.header`
-width: 1200px;
+width: 100%;
 height: 60px;
 background-color: white;
 display: flex;
@@ -34,9 +62,10 @@ padding-left: 10px;
 /* top: 0;
 left: 0; */
 /* position: fixed; */
-justify-content: space-between;
+justify-content: space-evenly;
 align-items: center;
 /* z-index: 500; */
+
 
 `
 
@@ -52,22 +81,37 @@ color: white;
 
 const ContainerShop = styled.div`
 cursor: pointer;
+margin-right: 25px;
 
 `
+const P = styled.p`
+color: gray;
+margin: 0;
+`
 
+const User = styled.div`
+width: 50px;
+height: 50px;
+border-radius: 50px;
+background-color: gray;
+`
 
-export default function Header (props){
-    const { cartItems } = UseCartContext();
-    const {mostrar} = props;
-    const {setMostrar} = props
+export default function Header (){
+    const { cartItems, mostrar, setMostrar } = UseCartContext();
+    // const {mostrar} = props;
+    // const {setMostrar} = props
 
     return(
         <>
         <ContainerHeader>
-        <HeaderNav>
-            <FaBars style={{fontSize:"28px"}} />
-            <Search/>
-            <ContainerShop >
+            <StatusHead>
+                <UserAndLocation>
+                    <h2 style={{margin:"0px"}}>Hello, Juan</h2> 
+                    <P>good morning</P>
+                </UserAndLocation>
+                <ContUserAndCart>
+                    
+                <ContainerShop >
                 <FaShoppingCart onClick={()=> setMostrar(!mostrar)} style={{fontSize:"28px"}} />
                 <a href="#">
                      { "" }
@@ -76,6 +120,15 @@ export default function Header (props){
                     ) : ("") }
                 </a>
             </ContainerShop>
+            {/* <User></User> */}
+            <img src={filter}/>
+                </ContUserAndCart>
+            </StatusHead>
+        <HeaderNav>
+            <Search />
+            {/* <FaBars style={{fontSize:"30px"}} /> */}
+            
+            
         </HeaderNav>
         </ContainerHeader>
 

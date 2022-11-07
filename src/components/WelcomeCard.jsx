@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Glider from 'react-glider';
 import 'glider-js/glider.min.css';
+import bannerImage from "../assets/banner_img 1.png"
 
 const Card = styled.div`
 min-width: 320px;
@@ -11,7 +12,7 @@ margin-right: 20px;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
-margin-top: 60px;
+margin-top: 160px;
 
 `
 const Title = styled.h2`
@@ -54,7 +55,7 @@ export default function WelcomeCard(){
   scrollLock
 >
 <Card>
-    <Image  src="https://images.pexels.com/photos/5965655/pexels-photo-5965655.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"/>
+    <Image  src={bannerImage}/>
     <Title>Get 25% off on all fruits</Title>
   </Card>
   <Card>

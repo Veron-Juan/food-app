@@ -6,6 +6,8 @@ const CartContext = createContext();
 export const CartContextProvider = ({ children }) => {
     const { products } = data;
     const [cartItems, setCartItems] = useState([]);
+    const [mostrar, setMostrar] = useState(false);
+    const [kilo, setKilo] = useState([])
 
     const onAdd = (product) => {
         const exist = cartItems.find(x => x.id === product.id); // esta constante exist filtra y guarda si hay objetos repetidos
@@ -13,12 +15,18 @@ export const CartContextProvider = ({ children }) => {
           //para agregar uno mas al carrito porque se supone que ya hay uno en el array
           setCartItems(cartItems.map(x => x.id === product.id ? {...exist, quantity: exist.quantity + 1} : x))
           
+          
           // console.log(exist)
         } else {
             setCartItems([...cartItems, {...product, quantity: 1}]) //un array con sus elementos desactruados =  [array q ya esta (si es q hay),  {nuevo array, con quantuty:1}]
           // console.log(cartItems);
           // console.log(product)
+          
         }
+      //   cartItems.map((x)=> {
+      //     setKilo(x.quantity)
+      //     console.log(kilo)
+      // })
         
       }
       const onRemove = (product)=> {
@@ -31,10 +39,18 @@ export const CartContextProvider = ({ children }) => {
         }
       }
 
+      
+
+      const addInDetail = ()=>{
+        cartItems.map((x)=> {
+            setKilo(x.quantity)
+            console.log(kilo)
+        })
+    }
 
 
     return(
-        <CartContext.Provider value={{cartItems, setCartItems, products, onAdd, onRemove}}>
+        <CartContext.Provider value={{cartItems, setCartItems, products, onAdd, onRemove, mostrar, setMostrar, kilo, setKilo, addInDetail}}>
             {children}
         </CartContext.Provider>
     )
