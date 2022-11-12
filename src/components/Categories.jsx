@@ -3,15 +3,19 @@ import Glider1 from 'react-glider';
 import 'glider-js/glider.min.css';
 import './categories.css'
 import { Link } from "react-router-dom";
+import {UseCartContext } from "../useContext/Context"
+import { useNavigate } from "react-router-dom";
 
 
 const ContainerCategories = styled.div`
 /* max-width: 700px; */
-margin-bottom: 40px;
+
+margin-bottom: 44px;
 height: 100%;
 display: flex;
 justify-content: center;
 border-radius: 20px;
+
 
 `
 
@@ -21,16 +25,29 @@ flex-direction: column;
 align-items: center;
 justify-content: center;
 margin-right:-30px;
-
+margin-top: 6px;
+margin-bottom: 2px;
+&:hover{
+    transform: scale(1.06);
+    transition: 0.4s;
+}
 `
 
 const Span = styled.span`
 width: 110px;
 height: 110px;
-background-color: #d1cbc9;
-border-radius: 30px;
+z-index: 10;
 
 font-size: 21px;
+
+cursor: pointer;
+
+`
+const Image = styled.img`
+width: 100%;
+height: 100%;
+border-radius: 30px;
+object-fit: cover;
 
 `
 
@@ -61,19 +78,31 @@ margin-right: 5px;
     color: #137740;
 }
 `
+const LinkCard = styled(Link)`
 
+width: 110px;
+height: 110px;
+box-shadow: 0px 0px 1px 0px;
+border-radius: 30px;
+
+
+`
 
 const NameCategory = styled.p`
 margin: 0;
 font-size: 15px;
 font-weight: bold;
 text-align: center;
-
-
-
 `
 
 export default function Categories(){
+
+    const { products, categories    } = UseCartContext();
+    const history = useNavigate()
+
+    const handleProduct = ()=>{
+        history(`products?keyword=${keyword}`)
+    }
 
 
     return(
@@ -91,46 +120,16 @@ export default function Categories(){
             slidesToShow={6}
             slidesToScroll={1}
 >           
-            
-            <ContainerCircle>
-            <Span></Span>
-            <NameCategory>Vegetables</NameCategory>
-            </ContainerCircle>
-            <ContainerCircle>
-            <Span></Span>
-            <NameCategory>friots</NameCategory>
-            </ContainerCircle>
-            <ContainerCircle>
-            <Span></Span>
-            <NameCategory>Vegetables</NameCategory>
-            </ContainerCircle>
-            <ContainerCircle>
-            <Span></Span>
-            <NameCategory>Vegetables</NameCategory>
-            </ContainerCircle>
-            <ContainerCircle>
-            <Span></Span>
-            <NameCategory>Vegetables</NameCategory>
-            </ContainerCircle>
-            <ContainerCircle>
-            <Span></Span>
-            <NameCategory>Vegetables</NameCategory>
-            </ContainerCircle>
-            <ContainerCircle>
-            <Span></Span>
-            <NameCategory>Vegetables</NameCategory>
-            </ContainerCircle>
-            <ContainerCircle>
-            <Span></Span>
-            <NameCategory>Vegetables</NameCategory>
-            </ContainerCircle>
-            <ContainerCircle>
-            <Span></Span>
-            <NameCategory>Vegetables</NameCategory>
-            </ContainerCircle>
-            
-            
-            
+            {categories.map((category)=>(
+                <ContainerCircle key={category.id} data-product-id={category.name}>
+                    <LinkCard to={`/products?productID=${category.name}`}>
+                    <Span>
+                        <Image src={category.image}/>  
+                    </Span>
+                    </LinkCard>
+                    <NameCategory>{category.name}</NameCategory>
+                </ContainerCircle>
+                ))}  
         </Glider1>
 
         </ContainerCategories>

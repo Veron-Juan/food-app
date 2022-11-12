@@ -209,7 +209,7 @@ export default function Detail(){
     const chau = hola.map((x)=> x.quantity)
     console.log(chau)
     
-
+    
     
     
     return(

@@ -1,6 +1,10 @@
 import styled from "styled-components"
 import { CiSearch } from 'react-icons/ci';
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import {UseCartContext } from "../useContext/Context"
+
+
 
 const Buscador = styled.form`
 width: 229px;
@@ -31,20 +35,21 @@ font-family: 'Poppins', sans-serif;
 
 
 export default function Search(){
+
+    const {setWord } = UseCartContext();
     const history = useNavigate()
-
-    // const [word, setWord] = useState([]);
-
     const submitHandler = (e) => {
         e.preventDefault();
         const keyword = e.currentTarget.keyword.value.trim();
         
+        
+        
         if (keyword.length < 2){
-            alert('hfghfyjfygygyu')
+            alert('no hay resultados')
         } else {
             e.currentTarget.keyword.value = '';
             history(`resultados?keyword=${keyword}`)
-            
+            setWord(keyword)
         }
     }
     return(
@@ -52,11 +57,7 @@ export default function Search(){
         <Buscador onSubmit={submitHandler}>
             <CiSearch style={{fontSize:"21px"}} />
             <Input placeholder="Search..." name="keyword"/> 
-            
-            
         </Buscador>
-
-        
         </>
     )
 }

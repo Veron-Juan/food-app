@@ -30,6 +30,8 @@ const Navink = styled(Link)`
 text-decoration: none;
 font-weight: 700;
 color: #949a97;
+
+
 &:hover{
   color:#4a4a4a;
   font-weight: bold;
@@ -105,6 +107,8 @@ export default function (props){
   
   
   const [loading, setLoading] = useState(true);
+
+  
   
     return(
 
@@ -128,7 +132,7 @@ export default function (props){
         {products.map((product)=>(
           <Cards key={product.id} data-product-id={product.id}>
             
-            <ViewDetail><Navink to={`/detail?productID=${product.id}`}>View detail</Navink></ViewDetail>
+            <ViewDetail><Navink   to={`/detail?productID=${product.id}`}>View detail</Navink></ViewDetail>
           
             
           <Img  src={product.image} alt={product.name} />

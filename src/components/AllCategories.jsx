@@ -4,6 +4,8 @@ import { MdArrowBackIosNew } from 'react-icons/md'
 import { ContainerDetail } from "./Detail"
 import {ButtonBack} from "./Detail"
 import { TitleDetail } from "./Detail"
+import {UseCartContext } from "../useContext/Context"
+import { Link } from "react-router-dom";
 
 
 
@@ -14,6 +16,25 @@ margin-top: 130px;
     margin-top: 100px;
 }
 `
+const LinkBox = styled(Link)`
+width: 90%;
+height: 110px;
+margin: 20px auto;
+border: 1px solid #E8ECF2;
+border-radius: 14px;
+text-decoration: none;
+color: black;
+/* box-shadow: inset 0px 0px 3px black; */
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+cursor:pointer;
+&:hover{
+    transform: scale(1.05);
+    transition: 0.6s;
+}
+`
+
 
 const BoxProduct = styled.div`
 width: 90%;
@@ -25,6 +46,11 @@ border-radius: 14px;
 display: flex;
 align-items: center;
 justify-content: space-evenly;
+cursor:pointer;
+&:hover{
+    transform: scale(1.05);
+    transition: 0.4s;
+}
 `
 
 const ContainerTop = styled.div`
@@ -71,6 +97,8 @@ export default function AllCateogories(){
         window.history.back();
     }
 
+    const { products, categories    } = UseCartContext();
+
     return(
         <>
         <ContainerCategories>
@@ -80,41 +108,19 @@ export default function AllCateogories(){
                 </Back>
                 <TitleDetail>Categories</TitleDetail>
             </ContainerTop>
-            <BoxProduct>
-                <ImgProduct src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/LJDE2JQXCREZLNYXHWEXDITQVY.jpg"/>
-                <ContainerText>
-                    <TitleCategories>Frutas</TitleCategories>
-                    <ItemsCategories>8 items</ItemsCategories>
+            {categories.map((category)=>(
+                <LinkBox to={`/products?productID=${category.name}`} data-product-id={category.name}>
+                    
+                        <ImgProduct src={category.image}/>
+                        <ContainerText>
+                            <TitleCategories>{category.name}</TitleCategories>
+                            <ItemsCategories>8 items</ItemsCategories>
                 </ContainerText>
-            </BoxProduct>
-            <BoxProduct>
-                <ImgProduct src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/LJDE2JQXCREZLNYXHWEXDITQVY.jpg"/>
-                <ContainerText>
-                    <TitleCategories>Frutas</TitleCategories>
-                    <ItemsCategories>8 items</ItemsCategories>
-                </ContainerText>
-            </BoxProduct>
-            <BoxProduct>
-                <ImgProduct src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/LJDE2JQXCREZLNYXHWEXDITQVY.jpg"/>
-                <ContainerText>
-                    <TitleCategories>Frutas</TitleCategories>
-                    <ItemsCategories>8 items</ItemsCategories>
-                </ContainerText>
-            </BoxProduct>
-            <BoxProduct>
-                <ImgProduct src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/LJDE2JQXCREZLNYXHWEXDITQVY.jpg"/>
-                <ContainerText>
-                    <TitleCategories>Frutas</TitleCategories>
-                    <ItemsCategories>8 items</ItemsCategories>
-                </ContainerText>
-            </BoxProduct>
-            <BoxProduct>
-                <ImgProduct src="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/LJDE2JQXCREZLNYXHWEXDITQVY.jpg"/>
-                <ContainerText>
-                    <TitleCategories>Frutas</TitleCategories>
-                    <ItemsCategories>8 items</ItemsCategories>
-                </ContainerText>
-            </BoxProduct>
+                
+                </LinkBox> 
+                
+                ))}  
+            
             
             
         </ContainerCategories>

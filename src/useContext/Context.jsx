@@ -5,9 +5,11 @@ const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
     const { products } = data;
+    const { categories } = data;
     const [cartItems, setCartItems] = useState([]);
     const [mostrar, setMostrar] = useState(false);
     const [kilo, setKilo] = useState([])
+    
 
     const onAdd = (product) => {
         const exist = cartItems.find(x => x.id === product.id); // esta constante exist filtra y guarda si hay objetos repetidos
@@ -40,6 +42,10 @@ export const CartContextProvider = ({ children }) => {
       }
 
       
+      
+
+      
+      
 
       const addInDetail = ()=>{
         cartItems.map((x)=> {
@@ -48,9 +54,10 @@ export const CartContextProvider = ({ children }) => {
         })
     }
 
+    const [word, setWord] = useState([]);
 
     return(
-        <CartContext.Provider value={{cartItems, setCartItems, products, onAdd, onRemove, mostrar, setMostrar, kilo, setKilo, addInDetail}}>
+        <CartContext.Provider value={{word, setWord, cartItems, setCartItems, products, onAdd, onRemove, mostrar, setMostrar, kilo, setKilo, addInDetail, categories}}>
             {children}
         </CartContext.Provider>
     )
