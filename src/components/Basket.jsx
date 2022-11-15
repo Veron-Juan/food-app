@@ -9,7 +9,7 @@ import close from "../assets/close.svg"
 
 const Menu = styled(ContainerDetail)`
 width: 355px;
-top: -4px;
+top: -6px;
 transform: ${({open})=> open ? "translateX(0)" : "translateX(-200vw)"};
 transition: .5s all ease;
 margin-left: -6px;

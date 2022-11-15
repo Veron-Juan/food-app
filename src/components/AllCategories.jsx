@@ -17,7 +17,7 @@ margin-top: 130px;
 }
 `
 const LinkBox = styled(Link)`
-width: 90%;
+width: 80%;
 height: 110px;
 margin: 20px auto;
 border: 1px solid #E8ECF2;
@@ -67,8 +67,8 @@ width:90%;
 `
 const Back = styled(ButtonBack)`
 position: absolute;
-
-left: -12px;
+top: 12px;
+left: -20px;
 `
 
 const ImgProduct = styled.img`
@@ -109,7 +109,7 @@ export default function AllCateogories(){
                 <TitleDetail>Categories</TitleDetail>
             </ContainerTop>
             {categories.map((category)=>(
-                <LinkBox to={`/products?productID=${category.name}`} data-product-id={category.name}>
+                <LinkBox key={category.id} to={`/products?productID=${category.name}`} data-product-id={category.name}>
                     
                         <ImgProduct src={category.image}/>
                         <ContainerText>

@@ -4,6 +4,7 @@ import {UseCartContext } from "../useContext/Context"
 import { useState } from "react"
 import minus from "../assets/minus.svg"
 import union from "../assets/Union.svg"
+import { useNavigate } from "react-router-dom";
 
 export const ContainerDetail = styled.div`
 height: 100%;
@@ -35,7 +36,7 @@ z-index: -1;
 
 export const ButtonBack = styled.button`
 position: absolute;
-top: 12px;
+top: -28px;
 left: 9px;
 width: 35px;
 height: 35px;
@@ -48,6 +49,9 @@ align-items: center;
 background-color: #eae5e5;
 color: #535151;
 cursor: pointer;
+@media (max-width: 648px) {
+    top:0px
+}
 `
 
 const ContainerTextAndNumbers = styled.div`
@@ -111,6 +115,7 @@ display: flex;
 flex-direction: column;
 text-align: center;
 margin-right: 5px;
+cursor: pointer;
 `
 const ImageItem = styled.img`
 width: 64px;
@@ -154,6 +159,9 @@ export default function Detail(){
     const back = ()=>{
         window.history.back();
     }
+    const history = useNavigate()
+
+    
 
     let query = new URLSearchParams(window.location.search);
 
@@ -167,40 +175,13 @@ export default function Detail(){
     const productDetailQuantity = cartItems.filter((product)=> product.id === productID)
     const productDetail = products.filter((product)=> product.id === productID);
     const aberconmap = products.map((item)=> item )
-    // const cantidadkilos = products.map((item)=> {const numero = item.id; return numero} )
-    
-    
-    
-    // console.log(productDetail)
-    // console.log(aberconmap)
-    // {item.quantity}
-    // console.log(productDetail.quantity)
-
-    // const pruebamap = cartItems.map((item)=> item.id)
-    // console.log(pruebamap)
-
-    
-    // console.log(quantityProduct);
-    // console.log(nueva);
-    
-    // const [kilo, setKilo] = useState([])
-    
-    // const quantityProduct = cartItems.map((x)=> {x.quantity})
-
-    // console.log(quantityProduct)
+   
     
     
     const filterProduct = products.filter((product)=> product.id === productID )
     console.log(filterProduct[0])
     console.log(cartItems.quantity)
-    // const addInDetail = ()=>{
-    //     cartItems.map((x)=> {
-    //         setKilo(x.quantity)
-    //         console.log(kilo)
-    //     })
-    // }
     
-    // console.log(quantityProduct)
 
     const hola = cartItems.filter((product)=> product.id === productID)
     console.log(hola)
@@ -209,8 +190,10 @@ export default function Detail(){
     const chau = hola.map((x)=> x.quantity)
     console.log(chau)
     
+    const relatedItems = products.filter((product)=> product.category === productDetail[0].category)
+    console.log('relatedItems', relatedItems)
     
-    
+    relatedItems.splice(4)
     
     return(
         <>
@@ -244,26 +227,15 @@ export default function Detail(){
             <ContainerRelatedItems>
                 <TitleDetail>Related items</TitleDetail>
                 <RelatedItems>
-                    <Items>
-                        <ImageItem src="https://static4.depositphotos.com/1017505/320/i/950/depositphotos_3201839-stock-photo-three-tomatoes.jpghttps://static4.depositphotos.com/1017505/320/i/950/depositphotos_3201839-stock-photo-three-tomatoes.jpg"/>
-                        Tomatos
+                    {relatedItems.map((item)=>(
+                        <Items key={item.id} >
+                        <ImageItem src={item.image} onClick={()=> history(`?productID=${item.id}`)} />
+                        {item.name}
+                        
                     </Items>
-                    <Items>
-                        <ImageItem src="https://static4.depositphotos.com/1017505/320/i/950/depositphotos_3201839-stock-photo-three-tomatoes.jpghttps://static4.depositphotos.com/1017505/320/i/950/depositphotos_3201839-stock-photo-three-tomatoes.jpg"/>
-                        Tomatos
-                    </Items>
-                    <Items>
-                        <ImageItem src="https://static4.depositphotos.com/1017505/320/i/950/depositphotos_3201839-stock-photo-three-tomatoes.jpghttps://static4.depositphotos.com/1017505/320/i/950/depositphotos_3201839-stock-photo-three-tomatoes.jpg"/>
-                        Tomatos
-                    </Items>
-                    <Items>
-                        <ImageItem src="https://static4.depositphotos.com/1017505/320/i/950/depositphotos_3201839-stock-photo-three-tomatoes.jpghttps://static4.depositphotos.com/1017505/320/i/950/depositphotos_3201839-stock-photo-three-tomatoes.jpg"/>
-                        Tomatos
-                    </Items>
-                    <Items>
-                        <ImageItem src="https://static4.depositphotos.com/1017505/320/i/950/depositphotos_3201839-stock-photo-three-tomatoes.jpghttps://static4.depositphotos.com/1017505/320/i/950/depositphotos_3201839-stock-photo-three-tomatoes.jpg"/>
-                        Tomatos
-                    </Items>
+                    ))}
+                    
+                    
 
 
                 </RelatedItems>

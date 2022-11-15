@@ -120,12 +120,12 @@ export default function Header (){
           
         }
        
-        if(hora >= 12 && hora < 18){
+        if(hora > 12 && hora <= 20){
             setDay("Good evening.")
           
         }
        
-        if(hora >= 18 && hora < 24){
+        if(hora > 20 && hora < 24){
             setDay("Good night.")
           
         }

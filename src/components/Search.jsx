@@ -25,10 +25,11 @@ align-items: center;
 `
 const Input = styled.input`
 width: 150px;
-background: none;
+
 border-color: transparent;
 outline: none;
 font-family: 'Poppins', sans-serif;
+background-color: white;
 `
 
 
@@ -55,8 +56,8 @@ export default function Search(){
     return(
         <>
         <Buscador onSubmit={submitHandler}>
-            <CiSearch style={{fontSize:"21px"}} />
-            <Input placeholder="Search..." name="keyword"/> 
+            <CiSearch  style={{fontSize:"21px"}} />
+            <Input autocomplete="off" placeholder="Search..." name="keyword"/> 
         </Buscador>
         </>
     )
