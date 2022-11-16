@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import swal from 'sweetalert';
 import { ContainerDetail } from "../views/Detail";
 import { UseCartContext } from "../useContext/Context";
 import { AiOutlineClose } from "react-icons/ai";
@@ -127,6 +127,31 @@ const Basket = () => {
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
   const totalPrice = itemsPrice;
 
+  const alerswet = ()=>{
+    swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "info",
+        buttons: true,
+        
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+          swal("Poof! Your imaginary file has been deleted!", {
+            icon: "success",
+          });
+          setTimeout(() => {
+            window.location.reload()
+          }, 1000);
+          
+          
+            
+          
+          
+        } 
+      });
+  }
+
   return (
     <>
       <Menu open={mostrar}>
@@ -176,7 +201,7 @@ const Basket = () => {
                 <p>${totalPrice.toFixed(2)}</p>
               </ConeinerDetialPrice>
 
-              <ButtonPay>Pay now!</ButtonPay>
+              <ButtonPay onClick={alerswet}>Pay now!</ButtonPay>
             </TotalPrices>
 
             <div></div>
