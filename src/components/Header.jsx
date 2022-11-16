@@ -7,7 +7,7 @@ import filter from "../assets/filter.svg"
 
 import Search from "./Search";
 import Basket from "./Basket";
-import Sidebar from "./Sidebar";
+
 
 
 const ContainerHeader = styled.div`

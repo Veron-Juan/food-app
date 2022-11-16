@@ -1,7 +1,8 @@
 
 import Glider from 'react-glider';
 import 'glider-js/glider.min.css';
-import { Cards, Img, Span, P,  SpanHorizintal, H3, Button } from "./Carousel"
+import {  Img, Span, P,  SpanHorizintal, H3, Button } from "./Carousel";
+import { Cards } from '../components/Cards';
 
 export default function(){
 

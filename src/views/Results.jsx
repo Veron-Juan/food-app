@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Cards,SpanHorizintal,Button,Img,H3 } from './Carousel'
+import { SpanHorizintal,Img,H3 } from './Carousel'
 import {UseCartContext } from "../useContext/Context"
-import {ButtonBack} from './Detail'
+import {ButtonBack} from '../views/Detail'
 import { MdArrowBackIosNew } from 'react-icons/md'
 import union from "../assets/Union.svg"
 import { Link } from 'react-router-dom'
+import { ButtonAddOrREMOVE } from '../components/ButtonAddOrREMOVE';
+import { Cards } from '../components/Cards';
+
 
 const ButtonBackResult = styled(ButtonBack)`
 top:106px;
@@ -99,9 +102,9 @@ function Results() {
                 <H3>{i.name}</H3>
                 <SpanHorizintal>
                 <p>${i.price}</p>
-                <Button onClick={()=> onAdd(i)}>
-                    <img style={{width:"17px"}} src={union}/>
-                </Button>
+                <ButtonAddOrREMOVE onClick={()=> onAdd(i)}>
+                    <img src={union}/>
+                </ButtonAddOrREMOVE>
                 </SpanHorizintal>
             </CardsResults>
         ))}
