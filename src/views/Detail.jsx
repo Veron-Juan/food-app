@@ -12,6 +12,7 @@ export const ContainerDetail = styled.div`
   /* box-shadow: inset 0px 0px 5px 0px #00000091; */
   z-index: 100;
   margin-top: 136px;
+  
 `;
 
 const ContainerImgAndBtn = styled.div`
@@ -93,6 +94,8 @@ const DescriptionTex = styled.p`
 `;
 
 const ContainerRelatedItems = styled.div``;
+
+
 const RelatedItems = styled.div`
   display: flex;
   justify-content: space-evenly;
@@ -105,11 +108,16 @@ const Items = styled.div`
   text-align: center;
   margin-right: 5px;
   cursor: pointer;
+  &:hover{
+    transform: scale(1.2);
+    
+  }
 `;
 const ImageItem = styled.img`
   width: 64px;
   height: 64px;
   border-radius: 10px;
+  
 `;
 
 const ContainerAddCart = styled.div`

@@ -26,7 +26,7 @@ const Input = styled.input`
   border-color: transparent;
   outline: none;
   font-family: "Poppins", sans-serif;
-  text-decoration: none;
+  text-decoration: none !important;
   
   appearance: none;
 border-style: none;

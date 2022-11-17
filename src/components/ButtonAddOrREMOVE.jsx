@@ -10,7 +10,7 @@ font-size: 24px;
 color: white;
 background-color: #1CAF5E;
 border: none;
-z-index: 8000;
+z-index: 20;
 display: flex;
 align-items: center;
 justify-content: center;

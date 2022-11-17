@@ -26,19 +26,20 @@ export const ResultsConntain = styled.div`
 display:flex;
 flex-wrap: wrap;
 justify-content: center;
-
-
-
 margin-top: 30px;
 `
 
 export const CardsResults = styled(Cards)`
-min-width:185px;
+min-width:159px;
 height:160px;
-margin: 10px 5px;
+margin: 10px 9px;
 /* @media (min-width: 531px) {
     
 } */
+`
+
+const ButtonAdd = styled(ButtonAddOrREMOVE)`
+z-index: 20;
 `
 export const H2 = styled.h2`
 margin-top:160px;
@@ -119,9 +120,9 @@ function Results() {
                 <H3>{i.name}</H3>
                 <SpanHorizintal>
                 <p>${i.price}</p>
-                <ButtonAddOrREMOVE onClick={()=> onAdd(i)}>
+                <ButtonAdd  onClick={()=> onAdd(i)}>
                     <img src={union}/>
-                </ButtonAddOrREMOVE>
+                </ButtonAdd >
                 </SpanHorizintal>
             </CardsResults>
         ))}
