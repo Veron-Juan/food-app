@@ -26,14 +26,7 @@ const Input = styled.input`
   outline: none;
   font-family: "Poppins", sans-serif;
   
-  &:focus {
-    border: none;
-    
-  }
-
-  &:active {
-    border: none;
-  }
+  
 `;
 
 export default function Search() {
