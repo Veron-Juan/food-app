@@ -7,7 +7,7 @@ import minus from "../assets/minus.svg";
 import union from "../assets/Union.svg";
 import close from "../assets/close.svg";
 import { ButtonAddOrREMOVE } from "./ButtonAddOrREMOVE";
-import { Cards } from "./Cards";
+import { useNavigate, Navigate } from "react-router-dom";
 
 const Menu = styled(ContainerDetail)`
   width: 355px;
@@ -122,6 +122,7 @@ top:18px; */
 `;
 
 const Basket = () => {
+  const history = useNavigate();
   const { cartItems, onAdd, onRemove, mostrar, setMostrar } = UseCartContext();
   // const {mostrar} = props;
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
@@ -141,6 +142,7 @@ const Basket = () => {
             icon: "success",
           });
           setTimeout(() => {
+            history(`./`)
             window.location.reload()
           }, 1000);
           
