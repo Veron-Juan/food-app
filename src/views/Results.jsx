@@ -5,9 +5,10 @@ import {UseCartContext } from "../useContext/Context"
 import {ButtonBack} from '../views/Detail'
 import { MdArrowBackIosNew } from 'react-icons/md'
 import union from "../assets/Union.svg"
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { ButtonAddOrREMOVE } from '../components/ButtonAddOrREMOVE';
 import { Cards } from '../components/Cards';
+import swal from 'sweetalert';
 
 
 const ButtonBackResult = styled(ButtonBack)`
@@ -68,20 +69,36 @@ function Results() {
     
     const { products,  onAdd, word, setWord  } = UseCartContext();
     const [a, b] = useState([])
+    const history = useNavigate();
 
     const back = ()=>{
         window.history.back();
     }
     
-    // let url = new URLSearchParams(window.location.search);
-    // let keyword = url.get("keyword");
     
     useEffect(()=>{
         const showResults = ()=>{
         const productsResults = products.filter((product)=> product.name === word || product.category === word);
         b(productsResults)  
         console.log("effect")
+        if(productsResults.length === 0){
+            swal({
+                title: "No se encontraron resultados",
+                
+                icon: "warning",
+                
+                button: {
+                  text:"OK",
+                  color:"red",
+                }
+                
+              }
+              
+              )
+              
         }
+        }
+        
         
         showResults()
     },[word])

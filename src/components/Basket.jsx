@@ -7,7 +7,9 @@ import minus from "../assets/minus.svg";
 import union from "../assets/Union.svg";
 import close from "../assets/close.svg";
 import { ButtonAddOrREMOVE } from "./ButtonAddOrREMOVE";
-import { useNavigate, Navigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
+
+
 
 const Menu = styled(ContainerDetail)`
   width: 355px;
@@ -133,6 +135,7 @@ const Basket = () => {
         title: "Are you sure?",
         text: "Once deleted, you will not be able to recover this imaginary file!",
         icon: "info",
+        
         buttons: true,
         
       })
