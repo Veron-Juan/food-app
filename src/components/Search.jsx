@@ -21,7 +21,7 @@ const Buscador = styled.form`
 `;
 const Input = styled.input`
   width: 150px;
-
+  background-color: white;
   border-color: transparent;
   outline: none;
   font-family: "Poppins", sans-serif;
