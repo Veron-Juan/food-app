@@ -26,6 +26,15 @@ const Input = styled.input`
   border-color: transparent;
   outline: none;
   font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  
+  appearance: none;
+border-style: none;
+border-color: none;
+-moz-appearance: none;
+-webkit-appearance: none;
+
+
   
   
 `;
