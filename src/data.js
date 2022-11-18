@@ -1,4 +1,4 @@
-
+import banana from "../public/images/fruits/banana.png"
 
 const data = {
     products: [
@@ -13,7 +13,7 @@ const data = {
         id: '2',
         name: 'Banana',
         price: 2400,
-        image: "../public/images/fruits/banana.png",
+        image: banana,
         category: "Fruit",
         popular: true,
       },
