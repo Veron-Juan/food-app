@@ -85,7 +85,7 @@ export default function () {
   const { products, onAdd } = UseCartContext();
   const [loading, setLoading] = useState(true);
   const populares = products.filter((product) => product.popular);
-
+  console.log("imageeen", populares[0].image)
   return (
     <>
       <h2>Popular</h2>
