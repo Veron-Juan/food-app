@@ -1,4 +1,7 @@
 
+
+
+
 const data = {
     products: [
       {
@@ -12,7 +15,10 @@ const data = {
         id: '2',
         name: 'Banana',
         price: 2400,
-        image: "/public/images/fruits/banana.png",
+        
+
+        
+        image: "../../public/images/fruits/banana.png",
         category: "Fruit",
         popular: true,
       },
@@ -27,7 +33,7 @@ const data = {
         id: '4',
         name: "Lime",
         price: 1000,
-        image: '/public/images/fruits/lime.jpeg',
+        image: '../../public/images/fruits/lime.jpeg',
         category: "Fruit",
         popular: true,
       },
@@ -35,7 +41,7 @@ const data = {
         id: '5',
         name: 'orange',
         price: 300,
-        image: '/public/images/fruits/orange.jpeg',
+        image: '../../public/images/orange.jpeg',
         category: "Fruit",
         popular: true,
       },

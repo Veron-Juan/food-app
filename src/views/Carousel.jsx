@@ -9,6 +9,14 @@ import union from "../assets/Union.svg";
 import { ButtonAddOrREMOVE } from "../components/ButtonAddOrREMOVE";
 import { Cards } from "../components/Cards";
 
+
+
+
+
+
+	
+
+
 const Navink = styled(Link)`
   text-decoration: none;
   font-weight: 700;
@@ -86,6 +94,7 @@ export default function () {
   const [loading, setLoading] = useState(true);
   const populares = products.filter((product) => product.popular);
   console.log("imageeen", populares[0].image)
+  
   return (
     <>
       <h2>Popular</h2>
