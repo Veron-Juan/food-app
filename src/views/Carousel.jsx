@@ -93,7 +93,7 @@ export default function () {
   const { products, onAdd } = UseCartContext();
   const [loading, setLoading] = useState(true);
   const populares = products.filter((product) => product.popular);
-  console.log("imageeen", populares[0].image)
+  
   
   return (
     <>
@@ -108,6 +108,7 @@ export default function () {
                   View detail
                 </Navink>
               </ViewDetail>
+              
               <Img src={product.image} alt={product.name} />
               <Span>
                 <H3>{product.name}</H3>
