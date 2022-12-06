@@ -109,7 +109,7 @@ const data = {
       },
       {
         id: '14',
-        name: 'rggplant',
+        name: 'eggplant',
         price: 50,
         image: 'images/vegetables/Eggplant.jpg',
         category: "vegetables",
