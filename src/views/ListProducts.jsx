@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import { UseCartContext } from "../useContext/Context";
 import { ResultsConntain, CardsResults, H2 } from "./Results";
-import { SpanHorizintal, Img, H3 } from "../views/Carousel";
+
+import { SpanHorizintal,Img, H3  } from "../styled-components/Popular";
 import { ButtonBack } from "../views/Detail";
 import union from "../assets/Union.svg";
 import { MdArrowBackIosNew } from "react-icons/md";
@@ -58,7 +59,7 @@ function ListProducts() {
             <Navlink to={`/detail?productID=${product.id}`}>
               View detail
             </Navlink>
-            <Img style={{ width: "85px" }} src={product.image} />
+            <Img style={{ width: "85px", objectFit:"contain" }} src={product.image} />
             <H3>{product.name}</H3>
             <SpanHorizintal>
               <p>${product.price}</p>

@@ -20,7 +20,7 @@ const Buscador = styled.form`
   }
 `;
 const Input = styled.input`
-  width: 150px;
+  width: 90%;
   color: black;
   background-color: transparent;
   border-color: transparent;
@@ -44,7 +44,9 @@ export default function Search() {
   const history = useNavigate();
   const submitHandler = (e) => {
     e.preventDefault();
-    const keyword = e.currentTarget.keyword.value.trim();
+    const keyword = e.currentTarget.keyword.value.trim().toLowerCase();
+    // keyword.toLowerCase();
+    
 
     if (keyword.length < 2) {
       alert("no hay resultados");
@@ -58,7 +60,7 @@ export default function Search() {
     <>
       <Buscador onSubmit={submitHandler}>
         <CiSearch style={{ fontSize: "21px" }} />
-        <Input autocomplete="off" placeholder="Search..." name="keyword" />
+        <Input autocomplete="off" placeholder="Search..." name="keyword" type="search" />
       </Buscador>
     </>
   );

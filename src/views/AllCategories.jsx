@@ -5,8 +5,7 @@ import { ButtonBack } from "./Detail";
 import { TitleDetail } from "./Detail";
 import { UseCartContext } from "../useContext/Context";
 import { Link } from "react-router-dom";
-
-
+import {ContainerTop,ImgProduct, ContainerText,TitleCategories, ItemsCategories  } from "../styled-components/AllCategories"
 
 const ContainerCategories = styled(ContainerDetail)`
   margin-top: 130px;
@@ -32,57 +31,13 @@ const LinkBox = styled(Link)`
     transition: 0.6s;
   }
 `;
-
-const BoxProduct = styled.div`
-  width: 90%;
-  height: 110px;
-  margin: 20px auto;
-  border: 1px solid #e8ecf2;
-  border-radius: 14px;
-  /* box-shadow: inset 0px 0px 3px black; */
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  cursor: pointer;
-  &:hover {
-    transform: scale(1.05);
-    transition: 0.4s;
-  }
-`;
-
-const ContainerTop = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  position: relative;
-  margin: 0 auto;
-  height: 60px;
-  width: 90%;
-`;
 const Back = styled(ButtonBack)`
   position: absolute;
   top: 12px;
   left: -20px;
 `;
 
-const ImgProduct = styled.img`
-  width: 90px;
-  height: 90px;
-  border-radius: 14px;
-`;
 
-const ContainerText = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-const TitleCategories = styled.h3`
-  margin: 0;
-`;
-const ItemsCategories = styled.p`
-  color: #817f7f;
-`;
 
 export default function AllCateogories() {
   const back = () => {

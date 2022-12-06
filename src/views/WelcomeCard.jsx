@@ -19,9 +19,13 @@ const Card = styled.div`
 `;
 const Title = styled.h2`
   color: white;
-  font-size: 30px;
+  font-size: 18px;
   position: absolute;
-  top: 160px;
+  top: 180px;
+  @media (min-width: 648px) {
+    font-size: 26px;
+    margin-top: -5px;
+  }
 `;
 
 const Image = styled.img`
@@ -50,16 +54,16 @@ export default function WelcomeCard() {
           scrollLock
         >
           <Card>
-            <Image src={bannerImage} />
-            <Title>Get 25% off on all fruits</Title>
+            <Image src="https://images.theconversation.com/files/417973/original/file-20210826-2243-15s35b8.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=900.0&fit=crop" />
+            <Title>Get 25% off on all products</Title>
           </Card>
           <Card>
             <Image src="https://images.pexels.com/photos/5965672/pexels-photo-5965672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-            <Title>Get 25% off on all fruits</Title>
+            <Title>Get 25% off on all products</Title>
           </Card>
           <Card>
             <Image src="https://images.pexels.com/photos/5971864/pexels-photo-5971864.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" />
-            <Title>Get 25% off on all fruits</Title>
+            <Title>Get 25% off on all products</Title>
           </Card>
         </Glider>
       </Container>

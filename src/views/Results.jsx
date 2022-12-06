@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { SpanHorizintal,Img,H3 } from './Carousel'
+// import { SpanHorizintal,Img,H3 } from './Carousel'
+import { Img, H3,SpanHorizintal  } from "../styled-components/Popular";
 import {UseCartContext } from "../useContext/Context"
 import {ButtonBack} from '../views/Detail'
 import { MdArrowBackIosNew } from 'react-icons/md'
@@ -14,7 +15,6 @@ import swal from 'sweetalert';
 const ButtonBackResult = styled(ButtonBack)`
 top:106px;
 left:26px;
-
 
 @media (max-width: 648px) {
 top:135px;
@@ -33,9 +33,18 @@ export const CardsResults = styled(Cards)`
 min-width:159px;
 height:160px;
 margin: 10px 9px;
+justify-content: end;
+min-height: 155px;
+max-height: 213px;
 /* @media (min-width: 531px) {
     
 } */
+
+img{
+  max-width:85px;
+  max-height: 65px;
+  
+}
 `
 
 const ButtonAdd = styled(ButtonAddOrREMOVE)`
@@ -116,7 +125,7 @@ function Results() {
         {a.map((i)=>(
             <CardsResults key={i.id}>
                 <Navlink to={`/detail?productID=${i.id}`}>View detail</Navlink>
-                <Img style={{width:"85px", marginTop:"25px"}} src={i.image} />
+                <img  src={i.image} />
                 <H3>{i.name}</H3>
                 <SpanHorizintal>
                 <p>${i.price}</p>

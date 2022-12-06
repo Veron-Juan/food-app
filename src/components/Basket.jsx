@@ -128,12 +128,13 @@ const Basket = () => {
   const { cartItems, onAdd, onRemove, mostrar, setMostrar } = UseCartContext();
   // const {mostrar} = props;
   const itemsPrice = cartItems.reduce((a, c) => a + c.price * c.quantity, 0);
-  const totalPrice = itemsPrice;
+  const discount = itemsPrice * 0.25;
+  const totalPrice = itemsPrice - discount;
 
   const alerswet = ()=>{
     swal({
-        title: "Are you sure?",
-        text: "Once deleted, you will not be able to recover this imaginary file!",
+        title: "Are you sure to confirm your purchase?",
+        
         icon: "info",
         
         buttons: true,
@@ -141,7 +142,7 @@ const Basket = () => {
       })
       .then((willDelete) => {
         if (willDelete) {
-          swal("Poof! Your imaginary file has been deleted!", {
+          swal("Poof! Your purchase has been made successfully!", {
             icon: "success",
           });
           setTimeout(() => {
@@ -200,6 +201,10 @@ const Basket = () => {
               <ConeinerDetialPrice>
                 <h3>Items Price</h3>
                 <p>${itemsPrice.toFixed(2)}</p>
+              </ConeinerDetialPrice>
+              <ConeinerDetialPrice>
+                <h3>Discount 25%</h3>
+                <p>${discount.toFixed(2)}</p>
               </ConeinerDetialPrice>
               <ConeinerDetialPrice>
                 <h3>Total Price</h3>

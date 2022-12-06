@@ -4,9 +4,11 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { useState } from "react";
 import {UseCartContext } from "../useContext/Context"
 import filter from "../assets/filter.svg"
+import { Link } from "react-router-dom";
 
 import Search from "./Search";
 import Basket from "./Basket";
+import piña from "../assets/icons8-piña.png"
 
 
 
@@ -46,8 +48,17 @@ const UserAndLocation = styled.div`
 display: flex;
 flex-direction: column;
 align-items: center;
+justify-content: center;
 margin-left: 15px;
+margin-top: 5px;
 
+`
+const ContLogo = styled(Link)`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #272626;
 `
 
 const ContUserAndCart = styled.div`
@@ -60,19 +71,14 @@ margin-right: 15px;
 
 const HeaderNav = styled.header`
 width: 100%;
-
 background-color: white;
 display: flex;
-
 padding-right: 10px;
 padding-left: 10px;
-/* top: 0;
-left: 0; */
-/* position: fixed; */
 justify-content: space-evenly;
 align-items: center;
 
-/* z-index: 500; */
+
 
 
 
@@ -95,19 +101,69 @@ margin-right: 25px;
 `
 const P = styled.p`
 color: gray;
-margin: 0;
+margin: 0 auto;
+padding-right: 15px;
+`
+const IconMenu = styled.img`
+cursor: pointer;
+
+
+&:hover{
+    border-radius: 15px;
+    box-shadow: 0 0 1.2px 0px black;
+}
+
 `
 
-const User = styled.div`
-width: 50px;
-height: 50px;
-border-radius: 50px;
-background-color: gray;
+const MenuTogle = styled.div`
+background-color: #f6f6f6f8;
+    position: absolute;
+    top: 62px;
+    right: 15px;
+    width: 210px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    z-index: 100;
+    border-radius: 12px;
+    box-shadow: inset 0 0 2px 0px #b6acac;
+    
+
+ul{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    
+
+    li{
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: light;
+    text-align: justify;
+    
+     a{
+        text-decoration: none;
+        color: #767171f8;
+        &:hover{
+            color:#1c1b1bf8;
+        }
+     }
+    
+    }
+}
+
+
 `
+
 
 export default function Header (){
     const { cartItems, mostrar, setMostrar } = UseCartContext();
     const [day, setDay] = useState("")
+
+    const [show, setShow] = useState(false)
+
     
 
     function mostrarSaludo(){
@@ -136,8 +192,11 @@ export default function Header (){
         <>
         <ContainerHeader onLoad={mostrarSaludo}>
             <StatusHead>
-                <UserAndLocation>
-                    <h2 style={{margin:"0px"}}>Hello, Juan</h2> 
+                <UserAndLocation >
+                    <ContLogo to="./">
+                    <h2 style={{margin:"0px"}}>Food app</h2> 
+                    <img style={{width:"40px"}} src={piña}/>
+                    </ContLogo>
                     <P>{day}</P>
                 </UserAndLocation>
                 <ContUserAndCart>
@@ -153,7 +212,15 @@ export default function Header (){
                 </a>
             </ContainerShop>
             {/* <User></User> */}
-            <img src={filter}/>
+            <IconMenu  onClick={()=> setShow(!show)} src={filter}/>
+            {show &&
+             <MenuTogle>
+                <ul>
+                    <li><a href="https://github.com/Veron-Juan/food-app" target="_blank">Repository</a></li>
+                    <li><a href="https://juanvpdev.vercel.app/" target="_blank">About me</a></li>
+                    
+                </ul>
+            </MenuTogle>}
                 </ContUserAndCart>
             </StatusHead>
         <HeaderNav>
